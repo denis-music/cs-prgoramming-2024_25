@@ -4,6 +4,11 @@
     {
         public string BrojIndeksa { get; set; }
 
+        public Student()
+        {
+            
+        }
+
         public Student(string brojIndeksa, string imePrezime, string spol, 
             DateTime datumRodjenja, int? gradId = null)
             : base(imePrezime, spol, datumRodjenja, gradId)

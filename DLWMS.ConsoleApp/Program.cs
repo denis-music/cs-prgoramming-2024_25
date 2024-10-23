@@ -6,7 +6,7 @@ namespace DLWMS.ConsoleApp
     {
         static void Main(string[] args)
         {            
-            P2.Pokreni(new FileLogger());
+            P3.Pokreni();
         }
     }
 }
