@@ -3,12 +3,12 @@ using DLWMS.Infrastructure;
 
 namespace DLWMS.WinApp
 {
-    public partial class Form1 : Form
+    public partial class frmXO : Form
     {
         public int Brojac { get; set; }
         public string Igrac1 { get; set; }
         public string Igrac2 { get; set; }
-        public Form1()
+        public frmXO()
         {
             InitializeComponent();
         }

@@ -53,7 +53,7 @@
             // odjavaToolStripMenuItem
             // 
             odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
-            odjavaToolStripMenuItem.Size = new Size(180, 22);
+            odjavaToolStripMenuItem.Size = new Size(111, 22);
             odjavaToolStripMenuItem.Text = "Odjava";
             odjavaToolStripMenuItem.Click += odjavaToolStripMenuItem_Click;
             // 
@@ -65,7 +65,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmGlavna";
-            Text = "frmGlavna";
+            Text = "DLWMS v.5.0.1";
             WindowState = FormWindowState.Maximized;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

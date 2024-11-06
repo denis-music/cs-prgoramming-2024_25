@@ -1,6 +1,6 @@
 ﻿namespace DLWMS.WinApp
 {
-    partial class Form1
+    partial class frmXO
     {
         /// <summary>
         ///  Required designer variable.
