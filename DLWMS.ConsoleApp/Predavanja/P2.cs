@@ -44,7 +44,7 @@ namespace DLWMS.ConsoleApp.Predavanja
         private static void Nasljedjivanje()
         {
             Osoba osoba = new Osoba("Jasmin Azemovic", "M", new System.DateTime(1983, 1, 1));
-            Osoba student = new Student("IB120021", "Denis Music", "M", new System.DateTime(1983, 1, 1));
+            Osoba student = new StudentInit("IB120021", "Denis Music", "M", new System.DateTime(1983, 1, 1));
             
             OsobaInfo(osoba);
             OsobaInfo(student);
@@ -54,16 +54,16 @@ namespace DLWMS.ConsoleApp.Predavanja
 
         private static void OsobaInfo(Osoba osoba)
         {
-            if (osoba is Student student)
+            if (osoba is StudentInit student)
                 Console.WriteLine($"Student -> {student.BrojIndeksa} {student.ImePrezime}");
             else
                 Console.WriteLine($"Osoba -> {osoba.ImePrezime}");
 
 
-            if (osoba is Student)
+            if (osoba is StudentInit)
             {
-                Student student1 = (Student)osoba;
-                Student student2 = osoba as Student;//null dynamic_cast<Student*>(osoba)
+                StudentInit student1 = (StudentInit)osoba;
+                StudentInit student2 = osoba as StudentInit;//null dynamic_cast<Student*>(osoba)
                 Console.WriteLine($"Student -> {student1.BrojIndeksa} {student1.ToString()}");
             }
             else

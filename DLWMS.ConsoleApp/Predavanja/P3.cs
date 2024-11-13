@@ -20,11 +20,11 @@ namespace DLWMS.ConsoleApp.Predavanja
 
         private static void In()
         {
-            Student student = new Student();
+            StudentInit student = new StudentInit();
             TestIn(student);
         }
 
-        private static void TestIn(in Student student)
+        private static void TestIn(in StudentInit student)
         {
             student.BrojIndeksa = "IB120021";
             student.DatumRodjenja = DateTime.Now;           

@@ -2,11 +2,20 @@
 {
     public class Validator
     {
-        public static bool ProvjeriUnos(TextBox textBox, ErrorProvider err, string poruka)
+        public static bool ProvjeriUnos(Control control, ErrorProvider err, string poruka)
         {
-            if (!textBox.Text.IsSet())
+            bool validanUnos = true;
+            
+            if (control is PictureBox pictureBox && pictureBox.Image == null)
+                validanUnos = false;
+            else if (control is ComboBox comboBox && comboBox.SelectedIndex<0)
+                validanUnos = false;
+            else if(control is TextBox textBox && !textBox.Text.IsSet())
+                validanUnos = false;
+
+            if (!validanUnos)
             {
-                err.SetError(textBox, poruka);
+                err.SetError(control, poruka);
                 return false;
             }
             err.Clear();

@@ -1,24 +1,19 @@
-﻿namespace DLWMS.Data
+﻿using System.Drawing;
+
+namespace DLWMS.Data
 {
-    public class Student : Osoba
+    public class Student
     {
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public DateTime DatumRodjenja { get; set; }
+        public string Email { get; set; }
         public string BrojIndeksa { get; set; }
-
-        public Student()
-        {
-            
-        }
-
-        public Student(string brojIndeksa, string imePrezime, string spol, 
-            DateTime datumRodjenja, int? gradId = null)
-            : base(imePrezime, spol, datumRodjenja, gradId)
-        { 
-            BrojIndeksa = brojIndeksa;
-        }
-        public void PrijaviIspit()
-        {
-
-        }       
+        public string Lozinka { get; set; }
+        public int GradId { get; set; }
+        public int SpolId { get; set; }
+        public Image Slika { get; set; }//byte[]
+        public bool Aktivan { get; set; }
     }
-
 }

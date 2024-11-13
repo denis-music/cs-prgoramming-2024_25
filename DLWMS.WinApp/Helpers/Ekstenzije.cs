@@ -1,4 +1,6 @@
-﻿namespace DLWMS.WinApp.Helpers
+﻿using DLWMS.Infrastructure;
+
+namespace DLWMS.WinApp.Helpers
 {
     public static class Ekstenzije
     {
@@ -6,5 +8,15 @@
         {
             return !string.IsNullOrWhiteSpace(text);
         }
+
+
+        public static void UcitajPodatke<T>(this ComboBox comboBox, List<T> dataSource,
+            string displayMember = "Naziv", string valueMember = "Id")
+        {
+            comboBox.DataSource = dataSource;
+            comboBox.DisplayMember = "Naziv";
+            comboBox.ValueMember = "Id";
+        }     
+
     }
 }
