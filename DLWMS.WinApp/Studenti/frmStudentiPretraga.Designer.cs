@@ -36,6 +36,7 @@
             Email = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
             btnDodajStudenta = new Button();
+            txtFilter = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -110,11 +111,20 @@
             btnDodajStudenta.UseVisualStyleBackColor = true;
             btnDodajStudenta.Click += btnDodajStudenta_Click;
             // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(12, 18);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(663, 23);
+            txtFilter.TabIndex = 2;
+            txtFilter.TextChanged += txtFilter_TextChanged;
+            // 
             // frmStudentiPretraga
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 297);
+            Controls.Add(txtFilter);
             Controls.Add(btnDodajStudenta);
             Controls.Add(dgvStudenti);
             Name = "frmStudentiPretraga";
@@ -123,6 +133,7 @@
             Load += frmStudentiPretraga_Load;
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -135,5 +146,6 @@
         private DataGridViewTextBoxColumn Email;
         private DataGridViewCheckBoxColumn Aktivan;
         private Button btnDodajStudenta;
+        private TextBox txtFilter;
     }
 }
