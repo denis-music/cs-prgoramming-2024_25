@@ -9,6 +9,18 @@ namespace DLWMS.Infrastructure
         public static List<Drzava> Drzave{ get; set; } = GenerisDrzave();
         public static List<Grad> Gradovi { get; set; } = GenerisGradove();
         public static List<Student> Studenti { get; set; } = GenerisStudente();
+        public static List<Predmet> Predmeti { get; set; } = GenerisiPredmete();
+
+        private static List<Predmet> GenerisiPredmete()
+        {
+            return new List<Predmet>
+            {
+                new Predmet() { Id = 1, Naziv = "Programiranje I", ECTS = 6, Semestar = 1, Aktivan = true},
+                new Predmet() { Id = 2, Naziv = "Matematika",ECTS = 7, Semestar = 1, Aktivan = true},
+                new Predmet() { Id = 3, Naziv = "Racunarstvo i informatika",ECTS = 5, Semestar = 1, Aktivan = true},
+                new Predmet() { Id = 4, Naziv = "Programiranje II", ECTS = 8, Semestar = 2, Aktivan = true},
+            };
+        }
 
         private static List<Student> GenerisStudente()
         {

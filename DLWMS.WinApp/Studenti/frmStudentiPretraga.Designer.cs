@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             dgvStudenti = new DataGridView();
+            btnDodajStudenta = new Button();
+            txtFilter = new TextBox();
             BrojIndeksa = new DataGridViewTextBoxColumn();
             Ime = new DataGridViewTextBoxColumn();
             Prezime = new DataGridViewTextBoxColumn();
             DatumRodjenja = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
-            btnDodajStudenta = new Button();
-            txtFilter = new TextBox();
+            Predmeti = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -45,13 +46,32 @@
             dgvStudenti.AllowUserToAddRows = false;
             dgvStudenti.AllowUserToDeleteRows = false;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { BrojIndeksa, Ime, Prezime, DatumRodjenja, Email, Aktivan });
+            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { BrojIndeksa, Ime, Prezime, DatumRodjenja, Email, Aktivan, Predmeti });
             dgvStudenti.Location = new Point(12, 47);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
             dgvStudenti.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudenti.Size = new Size(776, 235);
             dgvStudenti.TabIndex = 0;
+            dgvStudenti.CellContentClick += dgvStudenti_CellContentClick;
+            // 
+            // btnDodajStudenta
+            // 
+            btnDodajStudenta.Location = new Point(681, 18);
+            btnDodajStudenta.Name = "btnDodajStudenta";
+            btnDodajStudenta.Size = new Size(107, 23);
+            btnDodajStudenta.TabIndex = 1;
+            btnDodajStudenta.Text = "Dodaj studenta";
+            btnDodajStudenta.UseVisualStyleBackColor = true;
+            btnDodajStudenta.Click += btnDodajStudenta_Click;
+            // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(12, 18);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(663, 23);
+            txtFilter.TabIndex = 2;
+            txtFilter.TextChanged += txtFilter_TextChanged;
             // 
             // BrojIndeksa
             // 
@@ -101,23 +121,15 @@
             Aktivan.Resizable = DataGridViewTriState.True;
             Aktivan.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
-            // btnDodajStudenta
+            // Predmeti
             // 
-            btnDodajStudenta.Location = new Point(681, 18);
-            btnDodajStudenta.Name = "btnDodajStudenta";
-            btnDodajStudenta.Size = new Size(107, 23);
-            btnDodajStudenta.TabIndex = 1;
-            btnDodajStudenta.Text = "Dodaj studenta";
-            btnDodajStudenta.UseVisualStyleBackColor = true;
-            btnDodajStudenta.Click += btnDodajStudenta_Click;
-            // 
-            // txtFilter
-            // 
-            txtFilter.Location = new Point(12, 18);
-            txtFilter.Name = "txtFilter";
-            txtFilter.Size = new Size(663, 23);
-            txtFilter.TabIndex = 2;
-            txtFilter.TextChanged += txtFilter_TextChanged;
+            Predmeti.HeaderText = "Predmeti";
+            Predmeti.Name = "Predmeti";
+            Predmeti.ReadOnly = true;
+            Predmeti.Resizable = DataGridViewTriState.True;
+            Predmeti.SortMode = DataGridViewColumnSortMode.Automatic;
+            Predmeti.Text = "Predmeti";
+            Predmeti.UseColumnTextForButtonValue = true;
             // 
             // frmStudentiPretraga
             // 
@@ -139,13 +151,14 @@
         #endregion
 
         private DataGridView dgvStudenti;
+        private Button btnDodajStudenta;
+        private TextBox txtFilter;
         private DataGridViewTextBoxColumn BrojIndeksa;
         private DataGridViewTextBoxColumn Ime;
         private DataGridViewTextBoxColumn Prezime;
         private DataGridViewTextBoxColumn DatumRodjenja;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewCheckBoxColumn Aktivan;
-        private Button btnDodajStudenta;
-        private TextBox txtFilter;
+        private DataGridViewButtonColumn Predmeti;
     }
 }

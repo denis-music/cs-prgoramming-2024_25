@@ -1,5 +1,6 @@
 ﻿using DLWMS.Data;
 using DLWMS.Infrastructure;
+using DLWMS.WinApp.Helpers;
 
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,8 @@ namespace DLWMS.WinApp.Studenti
 
         private void UcitajStudente(List<Student> studenti = null)
         {
-            dgvStudenti.DataSource = null;            
-            dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;      
+            dgvStudenti.DataSource = null;
+            dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
         }
 
         private void btnDodajStudenta_Click(object sender, EventArgs e)
@@ -53,6 +54,22 @@ namespace DLWMS.WinApp.Studenti
                 student.Ime.ToLower().Contains(filter) ||
                 student.Prezime.ToLower().Contains(filter) ||
                 student.BrojIndeksa.ToLower().Contains(filter);
+        }
+
+        private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var odabraniStudent = dgvStudenti.GetOdabraniRed() as Student;
+
+            Form forma = null;
+
+            if(dgvStudenti.CurrentCell is DataGridViewButtonCell)
+                forma = new frmStudentiPredmeti(odabraniStudent);   
+            else
+                forma = new frmStudentAddEdit(odabraniStudent);
+
+            if (forma.ShowDialog() == DialogResult.OK)
+                UcitajStudente();
+
         }
     }
 }

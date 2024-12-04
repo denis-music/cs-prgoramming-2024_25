@@ -18,9 +18,12 @@ namespace DLWMS.WinApp.Studenti
 {
     public partial class frmStudentAddEdit : Form
     {
-        public frmStudentAddEdit()
+        private Student? student;
+
+        public frmStudentAddEdit(Student? odabraniStudent = null)
         {
             InitializeComponent();
+            this.student = odabraniStudent ?? new Student();
         }
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
@@ -28,22 +31,23 @@ namespace DLWMS.WinApp.Studenti
 
             if (ValidanUnos())
             {
-                Student student = new Student
-                {
-                    Ime = txtIme.Text,
-                    Prezime = txtPrezime.Text,
-                    DatumRodjenja = dtpDatumRodjenja.Value,
-                    SpolId = (int)cmbSpol.SelectedValue,
-                    Email = txtEmail.Text,
-                    BrojIndeksa = txtBrojIndeksa.Text,
-                    Lozinka = txtLozinka.Text,
-                    GradId = (int)cmbGradovi.SelectedValue,
-                    Slika = pbSlika.Image,
-                    Aktivan = cbAktivan.Checked
-                };
+                student.Ime = txtIme.Text;
+                student.Prezime = txtPrezime.Text;
+                student.DatumRodjenja = dtpDatumRodjenja.Value;
+                student.SpolId = (int)cmbSpol.SelectedValue;
+                student.Email = txtEmail.Text;
+                student.BrojIndeksa = txtBrojIndeksa.Text;
+                student.Lozinka = txtLozinka.Text;
+                student.GradId = (int)cmbGradovi.SelectedValue;
+                student.Slika = pbSlika.Image;
+                student.Aktivan = cbAktivan.Checked;
 
-                InMemoryDB.Studenti.Add(student);
-                
+                if (student.Id == 0)
+                {
+                    student.Id = InMemoryDB.Studenti.Count + 1;
+                    InMemoryDB.Studenti.Add(student);
+                }
+
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -61,14 +65,34 @@ namespace DLWMS.WinApp.Studenti
                     Validator.ProvjeriUnos(txtBrojIndeksa, err, Resursi.Get(Kljucevi.RequiredField)) &&
                     Validator.ProvjeriUnos(txtLozinka, err, Resursi.Get(Kljucevi.RequiredField)) &&
                     Validator.ProvjeriUnos(cmbGradovi, err, Resursi.Get(Kljucevi.RequiredField)) &&
-                    Validator.ProvjeriUnos(txtEmail, err, Resursi.Get(Kljucevi.RequiredField));        }
+                    Validator.ProvjeriUnos(txtEmail, err, Resursi.Get(Kljucevi.RequiredField));
+        }
 
         private void frmStudentAddEdit_Load(object sender, EventArgs e)
         {
             UcitajSpolove();
             UcitajDrzave();
-            UcitajGenerisanePodatke();
-            
+
+            if (student.Id == 0)
+                UcitajGenerisanePodatke();
+            else
+                UcitajPodatkeOStudentu();
+
+        }
+        private void UcitajPodatkeOStudentu()
+        {
+            txtIme.Text = student.Ime;
+            txtPrezime.Text = student.Prezime;
+            dtpDatumRodjenja.Value = student.DatumRodjenja;
+            cmbSpol.SelectedValue = student.SpolId;
+            txtEmail.Text = student.Email;
+            txtBrojIndeksa.Text = student.BrojIndeksa;
+            txtLozinka.Text = student.Lozinka;
+            cmbDrzave.SelectedValue = InMemoryDB.Gradovi
+                .Where(grad => grad.Id == student.GradId).First().DrzavaId;
+            cmbGradovi.SelectedValue = student.GradId;
+            pbSlika.Image = student.Slika;
+            cbAktivan.Checked = student.Aktivan;
         }
 
         private void GenerisiEmail()
@@ -122,13 +146,15 @@ namespace DLWMS.WinApp.Studenti
         {
             GenerisiEmail();
         }
-    }
 
+
+
+    }
     public class Generator
     {
         public static string GenerisiEmail(string ime, string prezime)
         {
-           return $"{ime.ToLower()}.{prezime.ToLower()}@{Resursi.Get(Kljucevi.Domain)}";
+            return $"{ime.ToLower()}.{prezime.ToLower()}@{Resursi.Get(Kljucevi.Domain)}";
         }
 
         public static string GenerisiBrojIndeksa()
