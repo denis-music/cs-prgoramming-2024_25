@@ -38,6 +38,8 @@
             Email = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
             Predmeti = new DataGridViewButtonColumn();
+            btnDodajStudenta = new Button();
+            txtFilter = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -131,6 +133,14 @@
             Predmeti.Text = "Predmeti";
             Predmeti.UseColumnTextForButtonValue = true;
             // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(12, 18);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(663, 23);
+            txtFilter.TabIndex = 2;
+            txtFilter.TextChanged += txtFilter_TextChanged;
+            // 
             // frmStudentiPretraga
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -159,6 +169,8 @@
         private DataGridViewTextBoxColumn DatumRodjenja;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewCheckBoxColumn Aktivan;
-        private DataGridViewButtonColumn Predmeti;
+        private DataGridViewButtonColumn Predmeti ;
+
+
     }
 }
