@@ -20,6 +20,9 @@ namespace DLWMS.WinApp.Studenti
     {
         private Student? student;
 
+        DLWMSContext db = new DLWMSContext();
+
+
         public frmStudentAddEdit(Student? odabraniStudent = null)
         {
             InitializeComponent();
@@ -39,14 +42,16 @@ namespace DLWMS.WinApp.Studenti
                 student.BrojIndeksa = txtBrojIndeksa.Text;
                 student.Lozinka = txtLozinka.Text;
                 student.GradId = (int)cmbGradovi.SelectedValue;
-                student.Slika = pbSlika.Image;
+                student.Slika = pbSlika.Image.ToByteArray();
                 student.Aktivan = cbAktivan.Checked;
 
                 if (student.Id == 0)
-                {
-                    student.Id = InMemoryDB.Studenti.Count + 1;
-                    InMemoryDB.Studenti.Add(student);
-                }
+                    //student.Id = InMemoryDB.Studenti.Count + 1;
+                    db.Studenti.Add(student);
+                else
+                    db.Update(student);
+                
+                db.SaveChanges();
 
                 DialogResult = DialogResult.OK;
                 Close();
@@ -91,7 +96,7 @@ namespace DLWMS.WinApp.Studenti
             cmbDrzave.SelectedValue = InMemoryDB.Gradovi
                 .Where(grad => grad.Id == student.GradId).First().DrzavaId;
             cmbGradovi.SelectedValue = student.GradId;
-            pbSlika.Image = student.Slika;
+            pbSlika.Image = student.Slika.ToImage();
             cbAktivan.Checked = student.Aktivan;
         }
 

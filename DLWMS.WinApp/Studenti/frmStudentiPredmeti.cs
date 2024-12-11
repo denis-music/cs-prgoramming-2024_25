@@ -36,7 +36,7 @@ namespace DLWMS.WinApp.Studenti
 
         private void UcitajPodatkeOStudentu()
         {
-            pbSlika.Image = student.Slika;
+            pbSlika.Image = student.Slika.ToImage();
             lblImePrezime.Text = student.Ime + " " + student.Prezime;
             lblIndeks.Text = student.BrojIndeksa;
         }

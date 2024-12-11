@@ -16,6 +16,8 @@ namespace DLWMS.WinApp.Studenti
 {
     public partial class frmStudentiPretraga : Form
     {
+        DLWMSContext db = new DLWMSContext();
+
         public frmStudentiPretraga()
         {
             InitializeComponent();
@@ -30,7 +32,8 @@ namespace DLWMS.WinApp.Studenti
         private void UcitajStudente(List<Student> studenti = null)
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
+            //dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
+            dgvStudenti.DataSource = studenti ?? db.Studenti.ToList();
         }
 
         private void btnDodajStudenta_Click(object sender, EventArgs e)
@@ -43,7 +46,9 @@ namespace DLWMS.WinApp.Studenti
         {
             //var studenti = InMemoryDB.Studenti.Where(FiltrirajStudente).ToList();
             //UcitajStudente(studenti);
-            UcitajStudente(InMemoryDB.Studenti.Where(FiltrirajStudente).ToList());
+            //UcitajStudente(InMemoryDB.Studenti.Where(FiltrirajStudente).ToList());
+            UcitajStudente(db.Studenti.Where(FiltrirajStudente).ToList());
+
 
         }
         private bool FiltrirajStudente(Student student)

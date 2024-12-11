@@ -1,6 +1,8 @@
 ﻿using DLWMS.Data;
 using DLWMS.Infrastructure;
 
+using System.Drawing.Imaging;
+
 namespace DLWMS.WinApp.Helpers
 {
     public static class Ekstenzije
@@ -9,6 +11,18 @@ namespace DLWMS.WinApp.Helpers
         {
             return !string.IsNullOrWhiteSpace(text);
         }
+
+        public static byte[] ToByteArray(this Image image)
+        {
+            var ms = new MemoryStream();
+            image.Save(ms, ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+        public static Image ToImage(this byte[] image)
+        {
+            return Image.FromStream(new MemoryStream(image));
+        }
+
 
 
         public static object GetOdabraniRed(this DataGridView dataGridView)
