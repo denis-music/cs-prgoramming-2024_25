@@ -58,7 +58,7 @@ namespace DLWMS.WinApp.Studenti
             {
 
                 var predmet = cmbPredmeti.SelectedItem as Predmet;
-                var polozeni = new PolozeniPredmet
+                var polozeni = new StudentPredmet
                 {
                     Id = student.Polozeni.Count + 1,
                     StudentId = student.Id,

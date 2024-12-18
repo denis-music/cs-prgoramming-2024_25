@@ -53,13 +53,26 @@
             cbAktivan = new CheckBox();
             openFileDialog1 = new OpenFileDialog();
             err = new ErrorProvider(components);
+            clbUloge = new CheckedListBox();
+            tcUnosPodataka = new TabControl();
+            tabPage1 = new TabPage();
+            btnDalje = new Button();
+            tabPage2 = new TabPage();
+            button1 = new Button();
+            label10 = new Label();
+            tabPage3 = new TabPage();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)pbSlika).BeginInit();
             ((System.ComponentModel.ISupportInitialize)err).BeginInit();
+            tcUnosPodataka.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
             SuspendLayout();
             // 
             // btnSacuvaj
             // 
-            btnSacuvaj.Location = new Point(473, 262);
+            btnSacuvaj.Location = new Point(310, 255);
             btnSacuvaj.Name = "btnSacuvaj";
             btnSacuvaj.Size = new Size(75, 23);
             btnSacuvaj.TabIndex = 10;
@@ -70,7 +83,7 @@
             // pbSlika
             // 
             pbSlika.BorderStyle = BorderStyle.FixedSingle;
-            pbSlika.Location = new Point(12, 28);
+            pbSlika.Location = new Point(30, 20);
             pbSlika.Name = "pbSlika";
             pbSlika.Size = new Size(184, 228);
             pbSlika.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -79,7 +92,7 @@
             // 
             // btnUcitajSliku
             // 
-            btnUcitajSliku.Location = new Point(12, 262);
+            btnUcitajSliku.Location = new Point(30, 254);
             btnUcitajSliku.Name = "btnUcitajSliku";
             btnUcitajSliku.Size = new Size(184, 23);
             btnUcitajSliku.TabIndex = 2;
@@ -89,7 +102,7 @@
             // 
             // txtBrojIndeksa
             // 
-            txtBrojIndeksa.Location = new Point(203, 140);
+            txtBrojIndeksa.Location = new Point(39, 141);
             txtBrojIndeksa.Name = "txtBrojIndeksa";
             txtBrojIndeksa.Size = new Size(171, 23);
             txtBrojIndeksa.TabIndex = 4;
@@ -97,7 +110,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(203, 122);
+            label1.Location = new Point(39, 123);
             label1.Name = "label1";
             label1.Size = new Size(74, 15);
             label1.TabIndex = 4;
@@ -106,7 +119,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(203, 215);
+            label2.Location = new Point(39, 216);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 6;
@@ -114,7 +127,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(203, 233);
+            txtEmail.Location = new Point(39, 234);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(172, 23);
             txtEmail.TabIndex = 8;
@@ -122,7 +135,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(378, 24);
+            label3.Location = new Point(214, 25);
             label3.Name = "label3";
             label3.Size = new Size(52, 15);
             label3.TabIndex = 10;
@@ -130,7 +143,7 @@
             // 
             // txtPrezime
             // 
-            txtPrezime.Location = new Point(378, 42);
+            txtPrezime.Location = new Point(214, 43);
             txtPrezime.Name = "txtPrezime";
             txtPrezime.Size = new Size(172, 23);
             txtPrezime.TabIndex = 1;
@@ -139,7 +152,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(203, 24);
+            label4.Location = new Point(39, 25);
             label4.Name = "label4";
             label4.Size = new Size(30, 15);
             label4.TabIndex = 8;
@@ -147,7 +160,7 @@
             // 
             // txtIme
             // 
-            txtIme.Location = new Point(203, 42);
+            txtIme.Location = new Point(39, 43);
             txtIme.Name = "txtIme";
             txtIme.Size = new Size(171, 23);
             txtIme.TabIndex = 0;
@@ -155,7 +168,7 @@
             // 
             // dtpDatumRodjenja
             // 
-            dtpDatumRodjenja.Location = new Point(203, 91);
+            dtpDatumRodjenja.Location = new Point(39, 92);
             dtpDatumRodjenja.Name = "dtpDatumRodjenja";
             dtpDatumRodjenja.Size = new Size(171, 23);
             dtpDatumRodjenja.TabIndex = 2;
@@ -163,7 +176,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(203, 73);
+            label5.Location = new Point(39, 74);
             label5.Name = "label5";
             label5.Size = new Size(89, 15);
             label5.TabIndex = 12;
@@ -172,7 +185,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(378, 122);
+            label6.Location = new Point(214, 123);
             label6.Name = "label6";
             label6.Size = new Size(50, 15);
             label6.TabIndex = 14;
@@ -180,7 +193,7 @@
             // 
             // txtLozinka
             // 
-            txtLozinka.Location = new Point(378, 140);
+            txtLozinka.Location = new Point(214, 141);
             txtLozinka.Name = "txtLozinka";
             txtLozinka.Size = new Size(171, 23);
             txtLozinka.TabIndex = 5;
@@ -189,7 +202,7 @@
             // 
             cmbSpol.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSpol.FormattingEnabled = true;
-            cmbSpol.Location = new Point(378, 91);
+            cmbSpol.Location = new Point(214, 92);
             cmbSpol.Name = "cmbSpol";
             cmbSpol.Size = new Size(170, 23);
             cmbSpol.TabIndex = 3;
@@ -197,7 +210,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(378, 73);
+            label7.Location = new Point(214, 74);
             label7.Name = "label7";
             label7.Size = new Size(33, 15);
             label7.TabIndex = 16;
@@ -206,7 +219,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(203, 166);
+            label8.Location = new Point(39, 167);
             label8.Name = "label8";
             label8.Size = new Size(45, 15);
             label8.TabIndex = 18;
@@ -216,7 +229,7 @@
             // 
             cmbDrzave.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDrzave.FormattingEnabled = true;
-            cmbDrzave.Location = new Point(203, 184);
+            cmbDrzave.Location = new Point(39, 185);
             cmbDrzave.Name = "cmbDrzave";
             cmbDrzave.Size = new Size(170, 23);
             cmbDrzave.TabIndex = 6;
@@ -225,7 +238,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(378, 166);
+            label9.Location = new Point(214, 167);
             label9.Name = "label9";
             label9.Size = new Size(35, 15);
             label9.TabIndex = 20;
@@ -235,7 +248,7 @@
             // 
             cmbGradovi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbGradovi.FormattingEnabled = true;
-            cmbGradovi.Location = new Point(378, 184);
+            cmbGradovi.Location = new Point(214, 185);
             cmbGradovi.Name = "cmbGradovi";
             cmbGradovi.Size = new Size(170, 23);
             cmbGradovi.TabIndex = 7;
@@ -243,7 +256,7 @@
             // cbAktivan
             // 
             cbAktivan.AutoSize = true;
-            cbAktivan.Location = new Point(381, 235);
+            cbAktivan.Location = new Point(217, 236);
             cbAktivan.Name = "cbAktivan";
             cbAktivan.Size = new Size(66, 19);
             cbAktivan.TabIndex = 9;
@@ -258,41 +271,138 @@
             // 
             err.ContainerControl = this;
             // 
+            // clbUloge
+            // 
+            clbUloge.CheckOnClick = true;
+            clbUloge.FormattingEnabled = true;
+            clbUloge.Location = new Point(21, 34);
+            clbUloge.Name = "clbUloge";
+            clbUloge.Size = new Size(364, 202);
+            clbUloge.TabIndex = 21;
+            // 
+            // tcUnosPodataka
+            // 
+            tcUnosPodataka.Controls.Add(tabPage1);
+            tcUnosPodataka.Controls.Add(tabPage2);
+            tcUnosPodataka.Controls.Add(tabPage3);
+            tcUnosPodataka.Location = new Point(12, 21);
+            tcUnosPodataka.Name = "tcUnosPodataka";
+            tcUnosPodataka.SelectedIndex = 0;
+            tcUnosPodataka.Size = new Size(427, 334);
+            tcUnosPodataka.TabIndex = 22;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(btnDalje);
+            tabPage1.Controls.Add(txtLozinka);
+            tabPage1.Controls.Add(txtBrojIndeksa);
+            tabPage1.Controls.Add(cbAktivan);
+            tabPage1.Controls.Add(label1);
+            tabPage1.Controls.Add(label9);
+            tabPage1.Controls.Add(txtEmail);
+            tabPage1.Controls.Add(cmbGradovi);
+            tabPage1.Controls.Add(label2);
+            tabPage1.Controls.Add(label8);
+            tabPage1.Controls.Add(txtIme);
+            tabPage1.Controls.Add(cmbDrzave);
+            tabPage1.Controls.Add(label4);
+            tabPage1.Controls.Add(label7);
+            tabPage1.Controls.Add(txtPrezime);
+            tabPage1.Controls.Add(cmbSpol);
+            tabPage1.Controls.Add(label3);
+            tabPage1.Controls.Add(label6);
+            tabPage1.Controls.Add(dtpDatumRodjenja);
+            tabPage1.Controls.Add(label5);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(419, 306);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Podaci o studentu";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnDalje
+            // 
+            btnDalje.Location = new Point(309, 261);
+            btnDalje.Name = "btnDalje";
+            btnDalje.Size = new Size(75, 23);
+            btnDalje.TabIndex = 21;
+            btnDalje.Text = "Dalje >>";
+            btnDalje.UseVisualStyleBackColor = true;
+            btnDalje.Click += btnDalje_Click;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(label10);
+            tabPage2.Controls.Add(pbSlika);
+            tabPage2.Controls.Add(btnUcitajSliku);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(419, 306);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Slika";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(324, 254);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 22;
+            button1.Text = "Dalje >>";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label10
+            // 
+            label10.Location = new Point(233, 20);
+            label10.Name = "label10";
+            label10.Size = new Size(166, 81);
+            label10.TabIndex = 3;
+            label10.Text = "Slika mora biti u .png formatu, dimenzija 500*350 na kojoj moraju biti jasno vidljivi";
+            // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(label11);
+            tabPage3.Controls.Add(btnSacuvaj);
+            tabPage3.Controls.Add(clbUloge);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(419, 306);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Uloge";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(21, 14);
+            label11.Name = "label11";
+            label11.Size = new Size(144, 15);
+            label11.TabIndex = 22;
+            label11.Text = "Odaberite uloge studenta:";
+            // 
             // frmStudentAddEdit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(575, 302);
-            Controls.Add(cbAktivan);
-            Controls.Add(label9);
-            Controls.Add(cmbGradovi);
-            Controls.Add(label8);
-            Controls.Add(cmbDrzave);
-            Controls.Add(label7);
-            Controls.Add(cmbSpol);
-            Controls.Add(label6);
-            Controls.Add(txtLozinka);
-            Controls.Add(label5);
-            Controls.Add(dtpDatumRodjenja);
-            Controls.Add(label3);
-            Controls.Add(txtPrezime);
-            Controls.Add(label4);
-            Controls.Add(txtIme);
-            Controls.Add(label2);
-            Controls.Add(txtEmail);
-            Controls.Add(label1);
-            Controls.Add(txtBrojIndeksa);
-            Controls.Add(btnUcitajSliku);
-            Controls.Add(pbSlika);
-            Controls.Add(btnSacuvaj);
+            ClientSize = new Size(454, 370);
+            Controls.Add(tcUnosPodataka);
             Name = "frmStudentAddEdit";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Podaci o studentu";
             Load += frmStudentAddEdit_Load;
             ((System.ComponentModel.ISupportInitialize)pbSlika).EndInit();
             ((System.ComponentModel.ISupportInitialize)err).EndInit();
+            tcUnosPodataka.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -321,5 +431,14 @@
         private CheckBox cbAktivan;
         private OpenFileDialog openFileDialog1;
         private ErrorProvider err;
+        private CheckedListBox clbUloge;
+        private TabControl tcUnosPodataka;
+        private TabPage tabPage1;
+        private Button btnDalje;
+        private TabPage tabPage2;
+        private Button button1;
+        private Label label10;
+        private TabPage tabPage3;
+        private Label label11;
     }
 }

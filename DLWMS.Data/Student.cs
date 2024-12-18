@@ -1,9 +1,14 @@
 ﻿using System.Drawing;
+using System.Security.Principal;
 
 namespace DLWMS.Data
 {
+
+
     public class Student
     {
+        public ICollection<Uloga> Uloge { get; set; } = new HashSet<Uloga>();
+
         public int Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
@@ -15,23 +20,10 @@ namespace DLWMS.Data
         public int SpolId { get; set; }
         public byte[] Slika { get; set; }//bio tip podatka Image
         public bool Aktivan { get; set; }
-        public List<PolozeniPredmet> Polozeni { get; set; }
+        public List<StudentPredmet> Polozeni { get; set; }
         public Student()
         {
-            Polozeni = new List<PolozeniPredmet>();
+            Polozeni = new List<StudentPredmet>();
         }
-    }
-
-
-    public class PolozeniPredmet
-    {
-        public int Id { get; set; }
-        public int StudentId { get; set; }
-        public Student Student { get; set; }        
-        public int PredmetId { get; set; }
-        public Predmet Predmet { get; set; }
-        public int Ocjena { get; set; }
-        public DateTime DatumPolaganja { get; set; }
-        public string Napomena { get; set; }
     }
 }
