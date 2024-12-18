@@ -2,6 +2,8 @@
 using DLWMS.Infrastructure;
 using DLWMS.WinApp.Helpers;
 
+using Microsoft.EntityFrameworkCore;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +28,13 @@ namespace DLWMS.WinApp.Studenti
         public frmStudentAddEdit(Student? odabraniStudent = null)
         {
             InitializeComponent();
-            this.student = odabraniStudent ?? new Student();
+            this.student =
+                db.Studenti.Include(s => s.Uloge)
+                .Where(s => s.Id == odabraniStudent.Id).FirstOrDefault()
+
+
+
+                ?? new Student();
         }
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
@@ -45,12 +53,15 @@ namespace DLWMS.WinApp.Studenti
                 student.Slika = pbSlika.Image.ToByteArray();
                 student.Aktivan = cbAktivan.Checked;
 
+                student.Uloge = clbUloge.CheckedItems.Cast<Uloga>().ToList();
+
+
                 if (student.Id == 0)
                     //student.Id = InMemoryDB.Studenti.Count + 1;
                     db.Studenti.Add(student);
                 else
                     db.Update(student);
-                
+
                 db.SaveChanges();
 
                 DialogResult = DialogResult.OK;
@@ -77,6 +88,7 @@ namespace DLWMS.WinApp.Studenti
         {
             UcitajSpolove();
             UcitajDrzave();
+            UcitajUloge();
 
             if (student.Id == 0)
                 UcitajGenerisanePodatke();
@@ -84,6 +96,12 @@ namespace DLWMS.WinApp.Studenti
                 UcitajPodatkeOStudentu();
 
         }
+
+        private void UcitajUloge()
+        {
+            clbUloge.DataSource = db.Uloge.ToList();
+        }
+
         private void UcitajPodatkeOStudentu()
         {
             txtIme.Text = student.Ime;
@@ -93,11 +111,20 @@ namespace DLWMS.WinApp.Studenti
             txtEmail.Text = student.Email;
             txtBrojIndeksa.Text = student.BrojIndeksa;
             txtLozinka.Text = student.Lozinka;
-            cmbDrzave.SelectedValue = InMemoryDB.Gradovi
+            cmbDrzave.SelectedValue = db.Gradovi
                 .Where(grad => grad.Id == student.GradId).First().DrzavaId;
             cmbGradovi.SelectedValue = student.GradId;
             pbSlika.Image = student.Slika.ToImage();
             cbAktivan.Checked = student.Aktivan;
+
+            for (int i = 0; i < clbUloge.Items.Count; i++)
+            {
+                var uloga = clbUloge.Items[i] as Uloga;
+                if (student.Uloge.Any(x => x.Id == uloga.Id))
+                    clbUloge.SetItemChecked(i, true);
+            }
+
+
         }
 
         private void GenerisiEmail()
@@ -113,7 +140,9 @@ namespace DLWMS.WinApp.Studenti
 
         private void UcitajDrzave()
         {
-            cmbDrzave.UcitajPodatke(InMemoryDB.Drzave);
+            cmbDrzave.UcitajPodatke(db.Drzave.ToList());
+
+            //cmbDrzave.UcitajPodatke(InMemoryDB.Drzave);
 
             //cmbSpol.DataSource = InMemoryDB.Drzave;
             //cmbSpol.DisplayMember = "Naziv";
@@ -138,7 +167,8 @@ namespace DLWMS.WinApp.Studenti
         private void cmbDrzave_SelectedIndexChanged(object sender, EventArgs e)
         {
             var drzava = cmbDrzave.SelectedItem as Drzava;
-            var gradovi = InMemoryDB.Gradovi.Where(x => x.DrzavaId == drzava.Id).ToList();
+            //var gradovi = InMemoryDB.Gradovi.Where(x => x.DrzavaId == drzava.Id).ToList();
+            var gradovi = db.Gradovi.Where(x => x.DrzavaId == drzava.Id).ToList();
             cmbGradovi.UcitajPodatke(gradovi);
         }
 
@@ -152,8 +182,15 @@ namespace DLWMS.WinApp.Studenti
             GenerisiEmail();
         }
 
+        private void btnDalje_Click(object sender, EventArgs e)
+        {
+            tcUnosPodataka.SelectedIndex = 1;
+        }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tcUnosPodataka.SelectedIndex = 2;
+        }
     }
     public class Generator
     {

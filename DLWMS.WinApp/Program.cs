@@ -1,4 +1,5 @@
 using DLWMS.WinApp.Edukatori;
+using DLWMS.WinApp.Izvjestaji;
 using DLWMS.WinApp.Predavanja;
 using DLWMS.WinApp.Studenti;
 

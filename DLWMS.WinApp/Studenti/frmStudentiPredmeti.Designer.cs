@@ -42,6 +42,7 @@
             pbSlika = new PictureBox();
             lblImePrezime = new Label();
             lblIndeks = new Label();
+            btnPrint = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPolozeni).BeginInit();
             ((System.ComponentModel.ISupportInitialize)err).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSlika).BeginInit();
@@ -158,11 +159,22 @@
             lblIndeks.TabIndex = 8;
             lblIndeks.Text = "label1";
             // 
+            // btnPrint
+            // 
+            btnPrint.Location = new Point(549, 343);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(75, 23);
+            btnPrint.TabIndex = 9;
+            btnPrint.Text = "Printaj";
+            btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.Click += btnPrint_Click;
+            // 
             // frmStudentiPredmeti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(649, 349);
+            ClientSize = new Size(649, 378);
+            Controls.Add(btnPrint);
             Controls.Add(lblIndeks);
             Controls.Add(lblImePrezime);
             Controls.Add(pbSlika);
@@ -197,5 +209,6 @@
         private Label lblIndeks;
         private Label lblImePrezime;
         private PictureBox pbSlika;
+        private Button btnPrint;
     }
 }

@@ -38,8 +38,7 @@
             Email = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
             Predmeti = new DataGridViewButtonColumn();
-            btnDodajStudenta = new Button();
-            txtFilter = new TextBox();
+            Uplate = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -48,7 +47,7 @@
             dgvStudenti.AllowUserToAddRows = false;
             dgvStudenti.AllowUserToDeleteRows = false;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { BrojIndeksa, Ime, Prezime, DatumRodjenja, Email, Aktivan, Predmeti });
+            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { BrojIndeksa, Ime, Prezime, DatumRodjenja, Email, Aktivan, Predmeti, Uplate });
             dgvStudenti.Location = new Point(12, 47);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
@@ -133,13 +132,15 @@
             Predmeti.Text = "Predmeti";
             Predmeti.UseColumnTextForButtonValue = true;
             // 
-            // txtFilter
+            // Uplate
             // 
-            txtFilter.Location = new Point(12, 18);
-            txtFilter.Name = "txtFilter";
-            txtFilter.Size = new Size(663, 23);
-            txtFilter.TabIndex = 2;
-            txtFilter.TextChanged += txtFilter_TextChanged;
+            Uplate.HeaderText = "Uplate";
+            Uplate.Name = "Uplate";
+            Uplate.ReadOnly = true;
+            Uplate.Resizable = DataGridViewTriState.True;
+            Uplate.SortMode = DataGridViewColumnSortMode.Automatic;
+            Uplate.Text = "Uplate";
+            Uplate.UseColumnTextForButtonValue = true;
             // 
             // frmStudentiPretraga
             // 
@@ -169,8 +170,7 @@
         private DataGridViewTextBoxColumn DatumRodjenja;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewCheckBoxColumn Aktivan;
-        private DataGridViewButtonColumn Predmeti ;
-
-
+        private DataGridViewButtonColumn Predmeti;
+        private DataGridViewButtonColumn Uplate;
     }
 }

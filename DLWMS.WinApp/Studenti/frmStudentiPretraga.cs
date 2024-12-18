@@ -67,8 +67,13 @@ namespace DLWMS.WinApp.Studenti
 
             Form forma = null;
 
-            if(dgvStudenti.CurrentCell is DataGridViewButtonCell)
-                forma = new frmStudentiPredmeti(odabraniStudent);   
+            if (dgvStudenti.CurrentCell is DataGridViewButtonCell)
+            {
+                if(e.ColumnIndex==6)
+                    forma = new frmStudentiPredmeti(odabraniStudent.Id);
+                else
+                    forma = new frmStudentiUplate(odabraniStudent.Id);
+            }
             else
                 forma = new frmStudentAddEdit(odabraniStudent);
 
