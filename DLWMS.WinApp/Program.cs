@@ -1,3 +1,4 @@
+using DLWMS.WinApp.Asinhorno;
 using DLWMS.WinApp.Edukatori;
 using DLWMS.WinApp.Izvjestaji;
 using DLWMS.WinApp.Predavanja;
@@ -16,7 +17,7 @@ namespace DLWMS.WinApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            var startnaForma = new frmStudentiPretraga();
+            var startnaForma = new frmAsinhrono();
             Application.Run(startnaForma);
         }
     }
