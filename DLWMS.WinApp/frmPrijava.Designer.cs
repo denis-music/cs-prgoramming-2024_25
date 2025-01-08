@@ -43,10 +43,11 @@
             // 
             txtKorisnickoIme.BackColor = SystemColors.ActiveCaption;
             txtKorisnickoIme.Font = new Font("Segoe UI", 15F);
-            txtKorisnickoIme.Location = new Point(658, 249);
+            txtKorisnickoIme.Location = new Point(460, 127);
             txtKorisnickoIme.Name = "txtKorisnickoIme";
             txtKorisnickoIme.Size = new Size(298, 34);
             txtKorisnickoIme.TabIndex = 0;
+            txtKorisnickoIme.Text = "denis";
             // 
             // label1
             // 
@@ -54,7 +55,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(660, 224);
+            label1.Location = new Point(462, 102);
             label1.Name = "label1";
             label1.Size = new Size(112, 20);
             label1.TabIndex = 1;
@@ -66,7 +67,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(660, 295);
+            label2.Location = new Point(462, 173);
             label2.Name = "label2";
             label2.Size = new Size(62, 20);
             label2.TabIndex = 3;
@@ -76,17 +77,18 @@
             // 
             txtLozinka.BackColor = SystemColors.ActiveCaption;
             txtLozinka.Font = new Font("Segoe UI", 15F);
-            txtLozinka.Location = new Point(658, 320);
+            txtLozinka.Location = new Point(460, 198);
             txtLozinka.Name = "txtLozinka";
             txtLozinka.PasswordChar = '*';
             txtLozinka.Size = new Size(298, 34);
             txtLozinka.TabIndex = 2;
+            txtLozinka.Text = "denis";
             // 
             // btnPrijava
             // 
             btnPrijava.BackColor = SystemColors.ActiveCaption;
             btnPrijava.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            btnPrijava.Location = new Point(835, 373);
+            btnPrijava.Location = new Point(637, 251);
             btnPrijava.Name = "btnPrijava";
             btnPrijava.Size = new Size(121, 38);
             btnPrijava.TabIndex = 4;
@@ -105,7 +107,7 @@
             llblRegistracija.Font = new Font("Segoe UI", 12F);
             llblRegistracija.ForeColor = SystemColors.ButtonHighlight;
             llblRegistracija.LinkColor = Color.White;
-            llblRegistracija.Location = new Point(658, 387);
+            llblRegistracija.Location = new Point(460, 265);
             llblRegistracija.Name = "llblRegistracija";
             llblRegistracija.Size = new Size(140, 21);
             llblRegistracija.TabIndex = 5;
@@ -119,7 +121,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.background;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1013, 524);
+            ClientSize = new Size(774, 312);
             Controls.Add(llblRegistracija);
             Controls.Add(btnPrijava);
             Controls.Add(label2);
@@ -130,6 +132,7 @@
             Name = "frmPrijava";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmPrijava";
+            Load += frmPrijava_Load;
             ((System.ComponentModel.ISupportInitialize)err).EndInit();
             ResumeLayout(false);
             PerformLayout();

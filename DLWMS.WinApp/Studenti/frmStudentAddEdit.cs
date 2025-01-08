@@ -29,12 +29,10 @@ namespace DLWMS.WinApp.Studenti
         {
             InitializeComponent();
             this.student =
+                odabraniStudent != null ?
                 db.Studenti.Include(s => s.Uloge)
                 .Where(s => s.Id == odabraniStudent.Id).FirstOrDefault()
-
-
-
-                ?? new Student();
+                : new Student();
         }
 
         private void btnSacuvaj_Click(object sender, EventArgs e)

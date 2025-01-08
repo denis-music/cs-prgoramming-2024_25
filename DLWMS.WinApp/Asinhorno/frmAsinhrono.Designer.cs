@@ -107,7 +107,8 @@
             Controls.Add(cmbBrojPonavljanja);
             Controls.Add(cmbAdrese);
             Name = "frmAsinhrono";
-            Text = "frmAsinhrono";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Provjera dostupnosti";
             Load += frmAsinhrono_Load;
             ResumeLayout(false);
             PerformLayout();

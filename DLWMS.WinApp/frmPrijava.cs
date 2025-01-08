@@ -63,7 +63,12 @@ namespace DLWMS.WinApp
         private void llblRegistracija_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var registracija = new frmRegistracija();
-            registracija.Show();  
+            registracija.Show();
+        }
+
+        private void frmPrijava_Load(object sender, EventArgs e)
+        {
+           // btnPrijava_Click(sender, e);
         }
     }
 }

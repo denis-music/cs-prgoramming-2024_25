@@ -83,6 +83,16 @@ namespace DLWMS.WinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_fit {
+            get {
+                object obj = ResourceManager.GetObject("logo.fit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap winner {
             get {
                 object obj = ResourceManager.GetObject("winner", resourceCulture);
